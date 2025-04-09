@@ -1,1 +1,4 @@
-﻿internal class BinarySearchTree<Node> { }
+﻿internal class BinarySearchTree<T> 
+{
+    //TODO
+}

@@ -1,1 +1,4 @@
-﻿internal class Node<T> { }
+﻿internal class Node(Type data) 
+{
+    //TODO
+}

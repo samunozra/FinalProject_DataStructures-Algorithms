@@ -2,20 +2,19 @@
 {
     private static void Main(string[] args)
     {
-     
+     //TODO
+    }
+
+    internal void RandomTreeGeneration()
+    {
+        //TODO 
     }
 }
-internal class Hero
+internal class Game
 {
-    internal string Name { get => _name; }
-    internal int Strength { get; set; }
-    internal int Agility { get; set; }
-    internal int Intelligence { get; set; }
-    internal int Health { get; set; }
-    internal Queue<string> Inventory { get; }
-    private string _name;
+    internal Hero Player;
+    internal Graph<Node> Map;
+    internal BinarySearchTree<Node> Challenges;
+    internal Node Exit;
 
-    internal Hero() { }
-    internal Hero(string name)
-    { _name = name; }
 }
