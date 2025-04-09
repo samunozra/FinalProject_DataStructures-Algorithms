@@ -1,0 +1,1 @@
+﻿internal class BinarySearchTree<Node> { }
