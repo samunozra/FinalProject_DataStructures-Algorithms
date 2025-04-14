@@ -1,4 +1,5 @@
-﻿internal class Graph<T> 
+﻿internal class Graph<T>
 {
-    //TODO
+    internal List<Node> Nodes;
+    //internal 
 }

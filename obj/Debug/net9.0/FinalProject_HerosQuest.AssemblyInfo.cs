@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinalProject_HerosQuest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e5e9a496452b1462ca49284959845abfd6ff5e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad4c7156c3b93fab70b9a64a2a5e5ada48fff8c7")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinalProject_HerosQuest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinalProject_HerosQuest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
