@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct \u0026 Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|c:\\users\\santi\\dropbox\\nyrb-smr\\tareas\\snow\\spring 2025\\data struct \u0026 algoritms\\homework\\finalproject_datastructures-algorithms\\graph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|solutionrelative:graph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|c:\\users\\santi\\dropbox\\nyrb-smr\\tareas\\snow\\spring 2025\\data struct \u0026 algoritms\\homework\\finalproject_datastructures-algorithms\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|solutionrelative:node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|c:\\users\\santi\\dropbox\\nyrb-smr\\tareas\\snow\\spring 2025\\data struct \u0026 algoritms\\homework\\finalproject_datastructures-algorithms\\hero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|solutionrelative:hero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|c:\\users\\santi\\dropbox\\nyrb-smr\\tareas\\snow\\spring 2025\\data struct \u0026 algoritms\\homework\\finalproject_datastructures-algorithms\\binarysearchtree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|solutionrelative:binarysearchtree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|c:\\users\\santi\\dropbox\\nyrb-smr\\tareas\\snow\\spring 2025\\data struct \u0026 algoritms\\homework\\finalproject_datastructures-algorithms\\hero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|solutionrelative:hero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|c:\\users\\santi\\dropbox\\nyrb-smr\\tareas\\snow\\spring 2025\\data struct \u0026 algoritms\\homework\\finalproject_datastructures-algorithms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|c:\\users\\santi\\dropbox\\nyrb-smr\\tareas\\snow\\spring 2025\\data struct \u0026 algoritms\\homework\\finalproject_datastructures-algorithms\\graph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E57D9A3-B9B3-48D2-9006-4903C93BA248}|FinalProject_HerosQuest.csproj|solutionrelative:graph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -40,61 +40,62 @@
               "RelativeDocumentMoniker": "Hero.cs",
               "ToolTip": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct \u0026 Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\Hero.cs",
               "RelativeToolTip": "Hero.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAA+wAcAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAqwAcAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T16:07:24.885Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "BinarySearchTree.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct \u0026 Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\BinarySearchTree.cs",
               "RelativeDocumentMoniker": "BinarySearchTree.cs",
               "ToolTip": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct \u0026 Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\BinarySearchTree.cs",
               "RelativeToolTip": "BinarySearchTree.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAewEsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T16:02:38.912Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Graph.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct \u0026 Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\Graph.cs",
               "RelativeDocumentMoniker": "Graph.cs",
               "ToolTip": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct \u0026 Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\Graph.cs",
               "RelativeToolTip": "Graph.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T16:02:30.1Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Node.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct \u0026 Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\Node.cs",
               "RelativeDocumentMoniker": "Node.cs",
               "ToolTip": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct \u0026 Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\Node.cs",
               "RelativeToolTip": "Node.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T16:02:20.142Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct \u0026 Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct \u0026 Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T16:00:12.974Z"
+              "WhenOpened": "2025-04-09T16:00:12.974Z",
+              "EditorCaption": ""
             }
           ]
         }
