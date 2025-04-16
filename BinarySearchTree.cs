@@ -120,7 +120,7 @@ internal class BinarySearchTree<T>
 
     public void DisplayNode(Node? node)
     {
-        Console.WriteLine($"Name: {node.Data}");
+        Console.WriteLine($"Name: {node.Data}, ID: {node.ID}");
     }
     public void InOrderTraversal()
     {
@@ -229,12 +229,13 @@ internal class BinarySearchTree<T>
         DepthCounter++;
 
         //NODE
-        if (target == Convert.ToInt32(node.Data))
+        if (target == node.ID)
         {
+            DisplayNode(node);
             return true;
         }
         //LEFT
-        if (target < Convert.ToInt32(node.Data))
+        if (target < node.ID)
         {
             return Search(node.Left, target);
         }
@@ -270,5 +271,11 @@ internal class BinarySearchTree<T>
             result = result.Right;
         }
         return Convert.ToInt32(result.Data);
+    }
+    internal void RebalanceTree()
+    {
+        if (GetMaxValue() - GetMinValue(RootNode) >= 1 ) { return; }
+
+
     }
 }
