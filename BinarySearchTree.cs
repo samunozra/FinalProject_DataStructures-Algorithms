@@ -83,14 +83,6 @@ internal class BinarySearchTree<T>
 
         return currentNode;
     }
-
-    public bool IsBalanced()
-    {
-        return CheckHeight(RootNode) != -1;
-        //TODO
-    }
-
-
     public int CheckHeight(Node? node)
     {
         if (node == null)
@@ -274,7 +266,10 @@ internal class BinarySearchTree<T>
     }
     internal void RebalanceTree()
     {
-        if (GetMaxValue() - GetMinValue(RootNode) >= 1 ) { return; }
+        if (GetMaxValue() - GetMinValue(RootNode)  <= 1 ) return; 
+
+        //TODO
+
 
 
     }

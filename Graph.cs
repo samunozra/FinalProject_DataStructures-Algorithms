@@ -10,142 +10,115 @@ internal class Graph<T>
         network = new Dictionary<string, List<Node>>();
     }
 
-    public void AddUser(string name)
+    public void AddNode(string node)
     {
-        if (network.ContainsKey(name))
+        if (network.ContainsKey(node))
         {
-            Console.WriteLine($"{name} already exists.");
+            Console.WriteLine($"{node} already exists.");
             return;
         }
-        network[name] = new List<Node>();
-        Console.WriteLine($"{name} has been added.");
+        network[node] = new List<Node>();
+        Console.WriteLine($"{node} has been added.");
     }
 
-    public void RemoveUser(string name)
+    public void RemoveNode(string node)
     {
-        Node nameAsNode = new Node(name);
-        if (network.ContainsKey(name))
+        Node nameAsNode = new Node(node);
+        if (network.ContainsKey(node))
         {
-            foreach (var friend in network[name])
+            foreach (var friend in network[node])
             {
                 network[friend.Data].Remove(nameAsNode);
             }
-            network.Remove(name);
+            network.Remove(node);
 
-            Console.WriteLine($"{name} has been removed from the network.");
+            Console.WriteLine($"{node} has been removed.");
             return;
         }
 
-        Console.WriteLine($"{name} does not exist.");
+        Console.WriteLine($"{node} does not exist.");
     }
 
-    public void AddFriend(string user1, string user2)
+    public void AddEdge(string node1, string node2)
     {
-        DoUsersExist(user1, user2);
-        Node user1AsNode = new Node(user1);
-        Node user2AsNode = new Node(user2);
+        DoNodesExist(node1, node2);
+        Node node1AsNode = new Node(node1);
+        Node node2AsNode = new Node(node2);
 
-        if (network[user1].Contains(user2AsNode))
+        if (network[node1].Contains(node2AsNode))
         {
-            Console.WriteLine($"{user1} and {user2} are already friends.");
+            Console.WriteLine($"{node1} and {node2} already have an edge.");
             return;
         }
 
-        network[user1].Add(user2AsNode);
-        network[user2].Add(user1AsNode);
-        Console.WriteLine($"{user1} and {user2} are now friends.");
+        network[node1].Add(node2AsNode);
+        network[node2].Add(node1AsNode);
+        Console.WriteLine($"{node1} and {node2} edge created.");
     }
 
-    public void RemoveFriend(string user1, string user2)
+    public void RemoveEdge(string node1, string node2)
     {
-        DoUsersExist(user1, user2);
-        Node user1AsNode = new Node(user1);
-        Node user2AsNode = new Node(user2);
+        DoNodesExist(node1, node2);
+        Node node1AsNode = new Node(node1);
+        Node node2AsNode = new Node(node2);
 
-        if (!network[user1].Contains(user2AsNode))
+        if (!network[node1].Contains(node2AsNode))
         {
-            Console.WriteLine($"{user1} and {user2} are not friends.");
+            Console.WriteLine($"{node1} and {node2} don't have an edge.");
             return;
         }
 
-        network[user1].Remove(user2AsNode);
-        network[user2].Remove(user1AsNode);
-        Console.WriteLine($"{user1} and {user2} are no longer friends.");
+        network[node1].Remove(node2AsNode);
+        network[node2].Remove(node1AsNode);
+        Console.WriteLine($"{node1} and {node2} edge no longer exists.");
     }
 
-    private void DoUsersExist(string user1, string user2)
+    public void DisplayEdges(string node)
     {
-        if (!network.ContainsKey(user1) || !network.ContainsKey(user2))
+        DoesNodeExist(node);
+
+        if (network[node].Count() == 0)
         {
-            Console.WriteLine("One or both users do not exist.");
+            Console.WriteLine($"{node} has no edges.");
             return;
         }
+
+        Console.WriteLine($"{node}'s edges: {string.Join(", ", network[node])}");
+
     }
 
-    public void DisplayFriends(string user)
+    private void DoesNodeExist(string node)
     {
-        DoesUserExist(user);
-
-        if (network[user].Count() == 0)
+        if (!network.ContainsKey(node))
         {
-            Console.WriteLine($"{user} has no friends.");
+            Console.WriteLine($"Node {node} does not exist.");
             return;
         }
-
-        Console.WriteLine($"{user}'s friends: {string.Join(", ", network[user])}");
-
     }
-
-    private void DoesUserExist(string user)
+    private void DoNodesExist(string node1, string node2)
     {
-        if (!network.ContainsKey(user))
+        if (!network.ContainsKey(node1) || !network.ContainsKey(node2))
         {
-            Console.WriteLine($"{user} does not exist.");
+            Console.WriteLine("One or both nodes do not exist.");
             return;
         }
     }
 
-    public void FindMutualFriends(string user1, string user2)
+    public void FindPath(string node1, string node2)
     {
-        DoUsersExist(user1, user2);
-        Node user1AsNode = new Node(user1);
-        Node user2AsNode = new Node(user2);
+        DoNodesExist(node1, node2);
+        Node node1AsNode = new Node(node1);
+        Node node2AsNode = new Node(node2);
 
-        List<Node> mutualFriends = network[user1].Intersect(network[user2]).ToList();
+        List<Node> mutualFriends = network[node1].Intersect(network[node2]).ToList();
 
         if (mutualFriends.Count == 0)
         {
-            Console.WriteLine($"{user1} and {user2} have no mutual friends.");
+            Console.WriteLine($"{node1} and {node2} have no mutual edges.");
             return;
         }
 
-        Console.WriteLine($"Mutual friends of {user1} and {user2}: {string.Join(", ", mutualFriends)}");
-    }
-
-    public void SuggestFriends(string user)
-    {
-        DoesUserExist(user);
-
-        //var directFriends = network[user];
-        //Dictionary<string> potentialFriends = new Dictionary<string>();
-
-        //foreach (var friend in directFriends)
-        //{
-
-        //}
-
-        //List<string> mutualFriends = network[user1].Intersect(network[user2]).ToList();
-        //compare our friendlist to our friends friendlists
-        //except our friend, not
-
-        /*
-         *    - Suggests friends of friends (not direct friends or the user themselves). 
-         *    Sorting by most mutual friends is recommended but not required.
-
-   - If no suggestions, outputs: "No friend suggestions for {user}."
-   - Otherwise, outputs: "Friend suggestions for {user}: {suggestions}" (suggestions as "name (X mutual friends)", separated by ", ").
-         */
-        //TODO
+        Console.WriteLine($"Mutual edges of {node1} and {node2}: {string.Join(", ", mutualFriends)}.");
     }
 
     public bool DepthFirstSearchRecursive(string current, string target, HashSet<string> visited, List<string> path)
