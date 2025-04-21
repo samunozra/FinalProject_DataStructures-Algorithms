@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-internal class Graph<T>
+﻿internal class Graph<T>
 {
     public Dictionary<string, List<Node>> network { get; set; }
     public Dictionary<string, List<Node>> GetNetwork() => network;
@@ -126,13 +124,11 @@ internal class Graph<T>
         path.Add(current);
         visited.Add(current);
 
-        // Base case
         if (current == target)
         {
             return true;
         }
 
-        // Explore all neighbors
         foreach (var neighbor in network[current])
         {
             if (!visited.Contains(neighbor.Data))
@@ -148,5 +144,9 @@ internal class Graph<T>
         path.Remove(current);
         return false;
     }
-
+    public bool BreadthFirstSearch()
+    {
+        //TODO
+        return false;
+    }
 }

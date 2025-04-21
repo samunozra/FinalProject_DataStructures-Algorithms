@@ -5,9 +5,11 @@
      //TODO
     }
 
-    internal void RandomTreeGeneration()
+    internal static Graph<Node> RandomTreeGeneration()
     {
         //TODO 
+
+        return new Graph<Node>();
     }
     public static int GetInt32()
     {
@@ -18,8 +20,10 @@
             Console.WriteLine("No number entered, try again");
             num = GetInt32();
         }
-        int.TryParse(text, out num);
-
+        if (!int.TryParse(text, out num))
+        {
+            num = GetInt32();
+        }
         return num;
     }
 }
@@ -30,4 +34,14 @@ internal class Game
     internal BinarySearchTree<Node> Challenges;
     internal Node Exit;
 
+    internal Game() : this("The Chosen One") {}
+
+    internal Game(string name)
+    {
+        Player = new Hero(name);
+        Map = Program.RandomTreeGeneration(); //TODO
+        Challenges = new BinarySearchTree<Node>();
+        //TODO add Exit to the constructor
+    }
+    
 }
