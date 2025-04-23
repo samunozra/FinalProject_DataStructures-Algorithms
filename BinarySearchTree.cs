@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-internal class BinarySearchTree<T> 
+﻿internal class BinarySearchTree<T> 
 {
     public Node? RootNode { get; set; }
     public int DepthCounter { get; set; }

@@ -2,12 +2,22 @@
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to DungeonMatters \n Enter your name to start the game:");
-        Game game= new Game(GetString());
-        game.Start();
+        // Console.WriteLine("Welcome to DungeonMatters \n Enter your name to start the game:");
+        // Game game= new Game(GetString());
+        // game.Start();
      //TODO
     }
 
+    internal void ReachedChallenge(Game game)
+    {
+        Console.WriteLine("You got to a challenge room");
+        /*
+        From the player's position obtain the level of difficulty of the challenge
+        Choose to go back and not face the challenge
+
+        */
+        //TODO
+    }
     internal static Graph<Node> RandomTreeGeneration()
     {
         Random random = new Random();
@@ -15,8 +25,18 @@
 
         for (int i = 0; i <= random.Next(15, 21); i++)
         {
-            generatedTree.AddNode(new Node($"{(char)i}"));
+            //create the string that sets the challenges
+            Challenge r = (Challenge)(random.Next() % 3);
+            string room = $"{r}{i}";
+            generatedTree.AddNode(new Node(i, room));
         }
+        //Store the challenge and treasure type in the node's data eg: C1 (combat, level 1)
+        //combat needs strength, puzzles need intelligence, traps use agility and treasure
+        //treasure won items increase base stats
+            //sword > +3 attack
+            //potion > +5 hp
+            //wing boots > +3 agility
+            //focus ring > +3 intelligence 
 
         //TODO 
 
@@ -69,3 +89,4 @@ internal class Game
 
     }
 }
+internal enum Challenge { C, P, T, I }//Combat, Puzzle, Trap, Item

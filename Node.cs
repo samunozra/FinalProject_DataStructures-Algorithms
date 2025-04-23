@@ -1,23 +1,31 @@
 ﻿internal class Node
 {
     internal string Data;
+    private int NextID;
     internal int ID { get; set; }
+    //not implement4ed properly in BST and Graph classes
     internal Node? Left { get; set; }
     internal Node? Right { get; set; }
     internal List<Node> Connections;
 
-    internal Node() : this(-1) { }
+    internal Node() : this(0) { }
 
-    internal Node(int data)
+    internal Node(int id)
     {
-        Connections = new List<Node>();
-        Data = data.ToString();
-        ID = 0;
-        Connections.Add(Left);
-        Connections.Add(Right);
+        Data = "";
+        ID = id;
+        NextID = id++;
+        Connections = [Left, Right];
+    }
+    internal Node(int id, string data)
+    {
+        Data = data;
+        ID = id;
     }
     internal Node(string data)
-    { Data = data; }
-    internal Node(double data)
-    { Data = data.ToString(); }
+    {
+        Data = data;
+        ID = NextID;
+        NextID++;
+    }
 }
