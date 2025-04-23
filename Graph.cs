@@ -18,6 +18,16 @@
         network[node] = new List<Node>();
         Console.WriteLine($"{node} has been added.");
     }
+    public void AddNode(Node node)
+    {
+        if (network.ContainsKey(node.Data))
+        {
+            Console.WriteLine($"{node} already exists.");
+            return;
+        }
+        network[node.Data] = new List<Node>();
+        Console.WriteLine($"{node} has been added.");
+    }
 
     public void RemoveNode(string node)
     {

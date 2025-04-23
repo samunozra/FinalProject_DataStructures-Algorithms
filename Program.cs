@@ -2,14 +2,25 @@
 {
     private static void Main(string[] args)
     {
+        Console.WriteLine("Welcome to DungeonMatters \n Enter your name to start the game:");
+        Game game= new Game(GetString());
+        game.Start();
      //TODO
     }
 
     internal static Graph<Node> RandomTreeGeneration()
     {
+        Random random = new Random();
+        Graph<Node> generatedTree = new Graph<Node>();
+
+        for (int i = 0; i <= random.Next(15, 21); i++)
+        {
+            generatedTree.AddNode(new Node($"{(char)i}"));
+        }
+
         //TODO 
 
-        return new Graph<Node>();
+        return generatedTree;
     }
     public static int GetInt32()
     {
@@ -25,6 +36,16 @@
             num = GetInt32();
         }
         return num;
+    }
+    public static string GetString()
+    {
+        string text = Console.ReadLine();
+        if (text == null)
+        {
+            Console.WriteLine("No number entered, try again");
+            text = GetString();
+        }
+        return text;
     }
 }
 internal class Game
@@ -43,5 +64,8 @@ internal class Game
         Challenges = new BinarySearchTree<Node>();
         //TODO add Exit to the constructor
     }
-    
+    internal void Start()
+    {
+
+    }
 }
