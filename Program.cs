@@ -27,10 +27,10 @@
         {
             //create the string that sets the challenges
             Challenge r = (Challenge)(random.Next() % 3);
-            string room = $"{r}{i}";
+            string room = $"{r}{i:##}";
             generatedTree.AddNode(new Node(i, room));
         }
-        //Store the challenge and treasure type in the node's data eg: C1 (combat, level 1)
+        //Store the challenge and treasure type in the node's data eg: Combat01 
         //combat needs strength, puzzles need intelligence, traps use agility and treasure
         //treasure won items increase base stats
             //sword > +3 attack
@@ -89,4 +89,4 @@ internal class Game
 
     }
 }
-internal enum Challenge { C, P, T, I }//Combat, Puzzle, Trap, Item
+internal enum Challenge { Combat, Puzzle, Trap, Item }

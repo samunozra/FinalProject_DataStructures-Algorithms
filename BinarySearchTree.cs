@@ -8,33 +8,37 @@
         RootNode = null;
     }
 
-    public void Insert(string data)
+    public void Insert(int id, string data)
     {
-        RootNode = InsertNode(RootNode, data);
+        RootNode = InsertNode(RootNode, id, data);
     }
 
-    public Node InsertNode(Node node, string data)
+    public Node InsertNode(Node node, int id, string data)
     {
         if (node == null)
         {
-            return new Node(data);
+            return new Node(id, data);
         }
 
-        if (Convert.ToInt32(data) < node.ID)
+        if (id < node.ID)
         {
-            node.Left = InsertNode(node.Left, data);
+            node.Left = InsertNode(node.Left, id, data);
         }
-        else if (Convert.ToInt32(data) > node.ID)
+        else if (id > node.ID)
         {
-            node.Right = InsertNode(node.Right, data);
+            node.Right = InsertNode(node.Right, id, data);
         }
-
+        else if ( id == node.ID )
+        {
+            throw new ArgumentException($"Node with the id \"{id}\" already exists");
+        }
+        RebalanceTree();
         return node;
     }
 
     public void DeleteNode(Node target)
     {
-        DeleteNode(Convert.ToInt32(target.Data));
+        DeleteNode(target.ID);
     }
 
     public void DeleteNode(int target)
@@ -58,26 +62,23 @@
         }
         else
         {
-            //Found the number
-
             //Leaf
             if (currentNode.Left == null && currentNode.Right == null)
-            {
                 return null;
-            }
+            
 
             // 1 Child
-            if (currentNode.Left == null || currentNode.Right == null)
-            {
-                //Node? result = currentNode.Left == null ? currentNode.Right : currentNode.Left;
+            if (currentNode.Left == null || currentNode.Right == null)            
                 return currentNode.Left == null ? currentNode.Right : currentNode.Left;
-            }
+            
 
             // 2 Children
             currentNode.Data = currentNode.Right.Data;
             currentNode.Right = DeleteNode(currentNode.Right, currentNode.ID);
 
         }
+        
+        RebalanceTree();
 
         return currentNode;
     }
@@ -110,7 +111,7 @@
 
     public void DisplayNode(Node? node)
     {
-        Console.WriteLine($"Name: {node.Data}, ID: {node.ID}");
+        Console.WriteLine($"ID: {node.ID}, Name: {node.Data}");
     }
     public void InOrderTraversal()
     {
@@ -210,7 +211,7 @@
         return Search(RootNode, target);
     }
 
-    public bool Search(Node node, int target) //searches numerically
+    public bool Search(Node node, int target)
     {
         if (node == null)
         {
@@ -247,8 +248,8 @@
         {
             currentNode = currentNode.Left;
         }
-
-        return Convert.ToInt32(currentNode.Data);
+        int.TryParse(currentNode.Data, out int minValue);
+        return minValue;
     }
 
 
@@ -260,7 +261,8 @@
         {
             result = result.Right;
         }
-        return Convert.ToInt32(result.Data);
+        int.TryParse(result.Data, out int maxValue);
+        return maxValue;
     }
     internal void RebalanceTree()
     {
