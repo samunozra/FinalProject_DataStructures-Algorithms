@@ -18,17 +18,18 @@
         */
         //TODO
     }
-    internal static Graph<Node> RandomTreeGeneration()
+    
+    internal static BinaryTree<Node> RandomTreeGeneration()
     {
         Random random = new Random();
-        Graph<Node> generatedTree = new Graph<Node>();
+        BinaryTree<Node> generatedTree = new BinaryTree<Node>();
 
         for (int i = 0; i <= random.Next(15, 21); i++)
         {
             //create the string that sets the challenges
             Challenge r = (Challenge)(random.Next() % 3);
             string room = $"{r}{i:##}";
-            generatedTree.AddNode(new Node(i, room));
+            generatedTree.Insert(i, room);
         }
         //Store the challenge and treasure type in the node's data eg: Combat01 
         //combat needs strength, puzzles need intelligence, traps use agility and treasure
@@ -38,9 +39,18 @@
             //wing boots > +3 agility
             //focus ring > +3 intelligence 
 
-        //TODO 
-
         return generatedTree;
+    }
+    internal static Graph<Node> RandomGraphGeneration(int nodeNumber)
+    {
+        Random random = new();
+        Graph<Node> generatedGraph = new();
+        for (int i = 0; i < nodeNumber ; i++)
+        {
+            string room = $"{(char)i}";
+            generatedGraph.AddNode(room);
+        } //TODO
+        return generatedGraph;
     }
     public static int GetInt32()
     {
@@ -72,7 +82,7 @@ internal class Game
 {
     internal Hero Player;
     internal Graph<Node> Map;
-    internal BinarySearchTree<Node> Challenges;
+    internal BinaryTree<Node> Challenges;
     internal Node Exit;
 
     internal Game() : this("The Chosen One") {}
@@ -80,8 +90,8 @@ internal class Game
     internal Game(string name)
     {
         Player = new Hero(name);
-        Map = Program.RandomTreeGeneration(); //TODO
-        Challenges = new BinarySearchTree<Node>();
+        Challenges = Program.RandomTreeGeneration();
+        Map = Program.RandomGraphGeneration(Challenges.NodeCounter);
         //TODO add Exit to the constructor
     }
     internal void Start()

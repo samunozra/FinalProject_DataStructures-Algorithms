@@ -1,15 +1,17 @@
-﻿internal class BinarySearchTree<T> 
+﻿internal class BinaryTree<T> 
 {
     public Node? RootNode { get; set; }
     public int DepthCounter { get; set; }
+    public int NodeCounter { get; set; }
 
-    public BinarySearchTree()
+    public BinaryTree()
     {
         RootNode = null;
     }
 
     public void Insert(int id, string data)
     {
+        NodeCounter++;
         RootNode = InsertNode(RootNode, id, data);
     }
 

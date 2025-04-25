@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinalProject_HerosQuest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39589e2e5e9387be389d21023529f1c85932f630")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d315c7c3ef48a6f76ab39842978d873e0646f5e")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinalProject_HerosQuest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinalProject_HerosQuest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
