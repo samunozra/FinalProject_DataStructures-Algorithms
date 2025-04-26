@@ -1,4 +1,4 @@
-﻿internal class BinaryTree<T> 
+﻿internal class BinaryTree<T>
 {
     public Node? RootNode { get; set; }
     public int DepthCounter { get; set; }
@@ -30,7 +30,7 @@
         {
             node.Right = InsertNode(node.Right, id, data);
         }
-        else if ( id == node.ID )
+        else if (id == node.ID)
         {
             throw new ArgumentException($"Node with the id \"{id}\" already exists");
         }
@@ -67,19 +67,19 @@
             //Leaf
             if (currentNode.Left == null && currentNode.Right == null)
                 return null;
-            
+
 
             // 1 Child
-            if (currentNode.Left == null || currentNode.Right == null)            
+            if (currentNode.Left == null || currentNode.Right == null)
                 return currentNode.Left == null ? currentNode.Right : currentNode.Left;
-            
+
 
             // 2 Children
             currentNode.Data = currentNode.Right.Data;
             currentNode.Right = DeleteNode(currentNode.Right, currentNode.ID);
 
         }
-        
+
         RebalanceTree();
 
         return currentNode;
@@ -253,8 +253,6 @@
         int.TryParse(currentNode.Data, out int minValue);
         return minValue;
     }
-
-
     public int GetMaxValue()
     {
         Node result = RootNode;
@@ -266,14 +264,58 @@
         int.TryParse(result.Data, out int maxValue);
         return maxValue;
     }
+    private int BalanceFactor(Node node)
+    {
+        int factor = CheckHeight(node.Left) - CheckHeight(node.Right);
+        return factor;
+    }
     internal void RebalanceTree()
     {
-        if (GetMaxValue() - GetMinValue(RootNode)  <= 1 ) return; 
-
-        //TODO
-
-
-
+        if (BalanceFactor(RootNode) > 1)
+        {
+            if (BalanceFactor(RootNode.Left) > 0)
+            {
+                RootNode = RotateLL(RootNode);
+            }
+            else
+            {
+                RootNode = RotateLR(RootNode);
+            }
+        }
+        else if (BalanceFactor(RootNode) < -1)
+        {
+            if (BalanceFactor(RootNode.Right) > 0)
+            {
+                RootNode = RotateLR(RootNode);
+                return;
+            }
+            RootNode = RotateRR(RootNode);
+        }
     }
-    // internal void 
+    private Node RotateRR(Node parent)
+    {
+        Node pivot = parent.Right;
+        parent.Right = pivot.Left;
+        pivot.Left = parent;
+        return pivot;
+    }
+    private Node RotateLL(Node parent)
+    {
+        Node pivot = parent.Left;
+        parent.Left = pivot.Right;
+        pivot.Right = parent;
+        return pivot;
+    }
+    private Node RotateLR(Node parent)
+    {
+        Node pivot = parent.Left;
+        parent.Left = RotateRR(pivot);
+        return RotateLL(parent);
+    }
+    private Node RotateRL(Node parent)
+    {
+        Node pivot = parent.Right;
+        parent.Right = RotateLL(pivot);
+        return RotateRR(parent);
+    }
 }

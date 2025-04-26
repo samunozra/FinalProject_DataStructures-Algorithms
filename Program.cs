@@ -18,7 +18,6 @@
         */
         //TODO
     }
-    
     internal static BinaryTree<Node> RandomTreeGeneration()
     {
         Random random = new Random();
