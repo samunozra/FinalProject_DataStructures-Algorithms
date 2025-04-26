@@ -208,24 +208,25 @@
         }
     }
 
-    public bool Search(int target)
+    public string Search(int target)
     {
         return Search(RootNode, target);
     }
 
-    public bool Search(Node node, int target)
+    public string Search(Node node, int target)
     {
+        string name = null;
         if (node == null)
         {
-            return false;
+            return name;
         }
         DepthCounter++;
 
         //NODE
         if (target == node.ID)
         {
-            DisplayNode(node);
-            return true;
+            name = node.Data;
+            return name;
         }
         //LEFT
         if (target < node.ID)

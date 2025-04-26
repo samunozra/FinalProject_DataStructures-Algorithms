@@ -2,20 +2,23 @@
 {
     private static void Main(string[] args)
     {
-        // Console.WriteLine("Welcome to DungeonMatters \n Enter your name to start the game:");
-        // Game game= new Game(GetString());
+        Console.WriteLine("Welcome to DungeonMatters \n Enter your name to start the game:");
+        Game game= new Game(GetString());
         // game.Start();
      //TODO
     }
 
     internal void ReachedChallenge(Game game)
     {
-        Console.WriteLine("You got to a challenge room");
         /*
         From the player's position obtain the level of difficulty of the challenge
         Choose to go back and not face the challenge
 
         */
+        string challenge = game.Challenges.Search(game.Map.CurrentNode());
+
+        Console.WriteLine("You got to a challenge room");
+        
         //TODO
     }
     internal static BinaryTree<Node> RandomTreeGeneration()
@@ -82,6 +85,7 @@ internal class Game
     internal Hero Player;
     internal Graph<Node> Map;
     internal BinaryTree<Node> Challenges;
+    Node CurrentNode = new();
     internal Node Exit;
 
     internal Game() : this("The Chosen One") {}
@@ -91,11 +95,12 @@ internal class Game
         Player = new Hero(name);
         Challenges = Program.RandomTreeGeneration();
         Map = Program.RandomGraphGeneration(Challenges.NodeCounter);
+        CurrentNode = Map.network["A"][0];
         //TODO add Exit to the constructor
     }
     internal void Start()
     {
-
+        
     }
 }
 internal enum Challenge { Combat, Puzzle, Trap, Item }
