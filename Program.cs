@@ -2,10 +2,11 @@
 {
     private static void Main(string[] args)
     {
+        ConsoleKey presedKey;
         Console.WriteLine("Welcome to DungeonMatters \n Enter your name to start the game:");
-        Game game= new Game(GetString());
+        Game game = new Game(GetString());
         // game.Start();
-     //TODO
+        //TODO
     }
 
     internal void ReachedChallenge(Game game)
@@ -15,10 +16,10 @@
         Choose to go back and not face the challenge
 
         */
-        string challenge = game.Challenges.Search(game.Map.CurrentNode());
+        // string challenge = game.Challenges.Search(game.Map.CurrentNode());
 
         Console.WriteLine("You got to a challenge room");
-        
+
         //TODO
     }
     internal static BinaryTree<Node> RandomTreeGeneration()
@@ -36,10 +37,10 @@
         //Store the challenge and treasure type in the node's data eg: Combat01 
         //combat needs strength, puzzles need intelligence, traps use agility and treasure
         //treasure won items increase base stats
-            //sword > +3 attack
-            //potion > +5 hp
-            //wing boots > +3 agility
-            //focus ring > +3 intelligence 
+        //sword > +3 attack
+        //potion > +5 hp
+        //wing boots > +3 agility
+        //focus ring > +3 intelligence 
 
         return generatedTree;
     }
@@ -47,7 +48,7 @@
     {
         Random random = new();
         Graph<Node> generatedGraph = new();
-        for (int i = 0; i < nodeNumber ; i++)
+        for (int i = 0; i < nodeNumber; i++)
         {
             string room = $"{(char)i}";
             generatedGraph.AddNode(room);
@@ -88,7 +89,7 @@ internal class Game
     Node CurrentNode = new();
     internal Node Exit;
 
-    internal Game() : this("The Chosen One") {}
+    internal Game() : this("The Chosen One") { }
 
     internal Game(string name)
     {
@@ -100,7 +101,17 @@ internal class Game
     }
     internal void Start()
     {
+
+    }
+    internal bool EndGame()
+    {
+        bool endCheck = false;
+        if (Exit == CurrentNode || Player.Health == 0)
+        {
+            endCheck = true;
+        }
         
+        return endCheck;
     }
 }
 internal enum Challenge { Combat, Puzzle, Trap, Item }
