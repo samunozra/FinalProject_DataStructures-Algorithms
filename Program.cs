@@ -53,19 +53,21 @@
             default:
             case 0:
                 Console.WriteLine("You encounter some bats \n Would you like to go fight or go back? type: (F/B) then Enter");
-                keyPress = GetString();
-                if ("f" == keyPress || "F" == keyPress)
+                keyPress = GetString().ToLower();
+                if ("f" == keyPress)
                 {
                     if (game.Player.Strength >= 4)
-                        {
+                    {
                         challengePassed = true;
+                        Console.WriteLine("You won!");
                     }
                     else
                     {
                         game.Player.Health -= 4 / 2;
+                        Console.WriteLine($"You lost, -{4/2} HP");
                     }
                 }
-                else if ("b" == keyPress || "B" == keyPress)
+                else if ("b" == keyPress)
                 {
                     challengePassed = false;
                 }
@@ -74,19 +76,21 @@
 
             case 1:
                 Console.WriteLine("You encounter a bunny monster \n Would you like to go fight or go back? type: (F/B) then Enter");
-                keyPress = GetString();
-                if ("f" == keyPress || "F" == keyPress)
+                keyPress = GetString().ToLower();
+                if ("f" == keyPress)
                 {
                     if (game.Player.Strength >= 5)
-                        {
+                    {
                         challengePassed = true;
+                        Console.WriteLine("You won!");
                     }
                     else
                     {
                         game.Player.Health -= 5 / 2;
+                        Console.WriteLine($"You lost, -{5/2} HP");
                     }
                 }
-                else if ("b" == keyPress || "B" == keyPress)
+                else if ("b" == keyPress)
                 {
                     challengePassed = false;
                 }
@@ -94,19 +98,21 @@
 
             case 2:
                 Console.WriteLine("You encounter a giant spider \n Would you like to go fight or go back? type: (F/B) then Enter");
-                keyPress = GetString();
-                if ("f" == keyPress || "F" == keyPress)
+                keyPress = GetString().ToLower();
+                if ("f" == keyPress)
                 {
                     if (game.Player.Strength >= 6)
                     {
                         challengePassed = true;
+                        Console.WriteLine("You won!");
                     }
                     else
                     {
                         game.Player.Health -= 6 / 2;
+                        Console.WriteLine($"You lost, -{6/2} HP");
                     }
                 }
-                else if ("b" == keyPress || "B" == keyPress)
+                else if ("b" == keyPress)
                 {
                     challengePassed = false;
                 }
@@ -115,19 +121,21 @@
             case 3:
             case 4:
                 Console.WriteLine("You encounter some skeletons \n Would you like to go fight or go back? type: (F/B) then Enter");
-                keyPress = GetString();
-                if ("f" == keyPress || "F" == keyPress)
+                keyPress = GetString().ToLower();
+                if ("f" == keyPress)
                 {
                     if (game.Player.Strength >= 7)
                     {
                         challengePassed = true;
+                        Console.WriteLine("You won!");
                     }
                     else
                     {
                         game.Player.Health -= 7 / 2;
+                        Console.WriteLine($"You lost, -{7/2} HP");
                     }
                 }
-                else if ("b" == keyPress || "B" == keyPress)
+                else if ("b" == keyPress)
                 {
                     challengePassed = false;
                 }
@@ -135,59 +143,224 @@
 
             case 5:
                 Console.WriteLine("You encounter some zombies \n Would you like to go fight or go back? type: (F/B) then Enter");
-                keyPress = GetString();
-                if ("f" == keyPress || "F" == keyPress)
+                keyPress = GetString().ToLower();
+                if ("f" == keyPress)
                 {
                     if (game.Player.Strength >= 8)
                     {
                         challengePassed = true;
+                        Console.WriteLine("You won!");
                     }
                     else
                     {
                         game.Player.Health -= 8 / 2;
+                        Console.WriteLine($"You lost, -{8/2} HP");
                     }
                 }
-                else if ("b" == keyPress || "B" == keyPress)
+                else if ("b" == keyPress)
                 {
                     challengePassed = false;
                 }
                 break;
 
             case 6:
-            Console.WriteLine("You encounter a chimera \n Would you like to go fight or go back? type: (F/B) then Enter");
-                keyPress = GetString();
-                if ("f" == keyPress || "F" == keyPress)
+                Console.WriteLine("You encounter a chimera \n Would you like to go fight or go back? type: (F/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("f" == keyPress)
                 {
                     if (game.Player.Strength >= 9)
                     {
                         challengePassed = true;
+                        Console.WriteLine("You won!");
                     }
                     else
                     {
                         game.Player.Health -= 9 / 2;
+                        Console.WriteLine($"You lost, -{9/2} HP");
                     }
                 }
-                else if ("b" == keyPress || "B" == keyPress)
+                else if ("b" == keyPress)
                 {
                     challengePassed = false;
                 }
                 break;
 
             case 7:
-            Console.WriteLine("You encounter the minotaur \n Would you like to go fight or go back? type: (F/B) then Enter");
-                keyPress = GetString();
-                if ("f" == keyPress || "F" == keyPress)
+                Console.WriteLine("You encounter the minotaur \n Would you like to go fight or go back? type: (F/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("f" == keyPress)
                 {
                     if (game.Player.Strength >= 10)
                     {
                         challengePassed = true;
+                        Console.WriteLine("You won!");
                     }
                     else
                     {
                         game.Player.Health -= 10 / 2;
+                        Console.WriteLine($"You lost, -{10/2} HP");
                     }
                 }
-                else if ("b" == keyPress || "B" == keyPress)
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+        }
+        return challengePassed;
+    }
+    internal bool PuzzleChallenge(Game game, int difficulty)
+    {
+        string keyPress;
+        bool challengePassed = false;
+        switch (difficulty)
+        {
+            default:
+            case 0:
+                Console.WriteLine("You encounter a locked door \n Would you like to go try or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Intelligence >= 4)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You failed!");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+
+                break;
+
+            case 1:
+                Console.WriteLine("You stumble upon a broken bridge \n Would you like to go try or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Intelligence >= 5)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You failed!");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+            case 2:
+                Console.WriteLine("You find a broken key \n Would you like to try and fix it or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Intelligence >= 6)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You failed!");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+            case 3:
+                Console.WriteLine("You are blocked by a lever puzzle \n Would you like to try or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Intelligence >= 7)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You failed!");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+            case 4:
+            case 5:
+                Console.WriteLine("You encounter a doubly locked door \n Would you like to try or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Intelligence >= 8)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You failed!");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+            case 6:
+                Console.WriteLine("You are blocked by a sphinx \n Would you like to try or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("f" == keyPress)
+                {
+                    if (game.Player.Intelligence >= 9)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You failed!");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+            case 7:
+                Console.WriteLine("You stumble upon a chess puzzle \n Would you like to try or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("f" == keyPress)
+                {
+                    if (game.Player.Intelligence >= 10)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You failed!");
+                    }
+                }
+                else if ("b" == keyPress)
                 {
                     challengePassed = false;
                 }
@@ -211,10 +384,13 @@
         //Store the challenge and treasure type in the node's data eg: Combat01 
         //combat needs strength, puzzles need intelligence, traps use agility and treasure
         //treasure won items increase base stats
-        //sword > +3 attack
+        //sword > +3 strength
+        //shield > +2 strength
         //potion > +5 hp
         //wing boots > +3 agility
+        //speed necklace > +2 agility
         //focus ring > +3 intelligence 
+        //lockpick > +2 intelligence
 
         return generatedTree;
     }
