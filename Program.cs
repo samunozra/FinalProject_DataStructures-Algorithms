@@ -8,13 +8,34 @@
         // game.Start();
         //TODO
     }
+    internal void DropItem(Game game)
+    {
+        string keyPress;
+        if (game.Player.Inventory.Count > 0 || game.Player.Inventory.Count == null)
+        {
+        Console.WriteLine("Would you like to drop an item? Type Y/N, then press Enter");
+        do
+        {
+            keyPress = GetString().ToLower();
+        } while (keyPress != "y" || keyPress != "n");
+        switch (keyPress)
+        {
+            case "y":
+            break;
+            case "n"://TODO
+            break;
+            
+        }
+        
+        }
+    }
 
     internal bool ReachedChallenge(Game game)
     {
         /*
         From the player's position obtain the level of difficulty of the challenge
         Choose to go back and not face the challenge
-
+        Items: choose to pick up, but pass anyway
         */
         string challenge = game.Challenges.Search(game.CurrentNode.ID);
         Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -29,20 +50,19 @@
                 break;
 
             case 'P':
-                PuzzleChallenge(game, difficulty);
+                passed = PuzzleChallenge(game, difficulty);
                 break;
 
             case 'T':
-                TrapChallenge(game, difficulty);
+                passed = TrapChallenge(game, difficulty);
                 break;
 
             case 'I':
-                ItemChallenge(game, difficulty);
+                passed = ItemChallenge(game, difficulty);
                 break;
         }
         Console.ForegroundColor = ConsoleColor.Gray;
         return passed;
-        //TODO
     }
     internal bool CombatChallenge(Game game, int difficulty)
     {
