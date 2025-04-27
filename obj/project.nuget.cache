@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "l1z61c9gPNI=",
+  "dgSpecHash": "Guh3rtcMAxk=",
   "success": true,
   "projectFilePath": "C:\\Users\\santi\\Dropbox\\NYRB-SMR\\Tareas\\Snow\\Spring 2025\\Data struct & Algoritms\\Homework\\FinalProject_DataStructures-Algorithms\\FinalProject_HerosQuest.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\santi\\.nuget\\packages\\xunit\\1.7.0.1540\\xunit.1.7.0.1540.nupkg.sha512",
+    "C:\\Users\\santi\\.nuget\\packages\\xunit.runner.visualstudio\\3.0.2\\xunit.runner.visualstudio.3.0.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'xunit 1.7.0.1540' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
+      "libraryId": "xunit",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }

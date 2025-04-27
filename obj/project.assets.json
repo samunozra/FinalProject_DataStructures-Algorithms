@@ -1,11 +1,71 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net9.0": {
+      "xunit/1.7.0.1540": {
+        "type": "package",
+        "compile": {
+          "lib/xunit.dll": {}
+        },
+        "runtime": {
+          "lib/xunit.dll": {}
+        }
+      },
+      "xunit.runner.visualstudio/3.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/_._": {}
+        },
+        "runtime": {
+          "lib/net6.0/_._": {}
+        },
+        "build": {
+          "build/net6.0/xunit.runner.visualstudio.props": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "xunit/1.7.0.1540": {
+      "sha512": "2RREz4k606mZMrJw42dLzpX+o9Qe/9iM4to7wYGS92Vr0uus0Nes3pVxIcUxUAcN1WfWAqozo6V0AgGt/aaFMA==",
+      "type": "package",
+      "path": "xunit/1.7.0.1540",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/xunit.dll",
+        "lib/xunit.xml",
+        "xunit.1.7.0.1540.nupkg.sha512",
+        "xunit.nuspec"
+      ]
+    },
+    "xunit.runner.visualstudio/3.0.2": {
+      "sha512": "oXbusR6iPq0xlqoikjdLvzh+wQDkMv9If58myz9MEzldS4nIcp442Btgs2sWbYWV+caEluMe2pQCZ0hUZgPiow==",
+      "type": "package",
+      "path": "xunit.runner.visualstudio/3.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
+        "build/net472/xunit.abstractions.dll",
+        "build/net472/xunit.runner.visualstudio.props",
+        "build/net472/xunit.runner.visualstudio.testadapter.dll",
+        "build/net6.0/xunit.abstractions.dll",
+        "build/net6.0/xunit.runner.visualstudio.props",
+        "build/net6.0/xunit.runner.visualstudio.testadapter.dll",
+        "lib/net472/_._",
+        "lib/net6.0/_._",
+        "xunit.runner.visualstudio.3.0.2.nupkg.sha512",
+        "xunit.runner.visualstudio.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net9.0": [
+      "xunit >= 1.7.0.1540",
+      "xunit.runner.visualstudio >= 3.0.2"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\santi\\.nuget\\packages\\": {},
@@ -57,6 +117,18 @@
     "frameworks": {
       "net9.0": {
         "targetAlias": "net9.0",
+        "dependencies": {
+          "xunit": {
+            "target": "Package",
+            "version": "[1.7.0.1540, )"
+          },
+          "xunit.runner.visualstudio": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[3.0.2, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -76,5 +148,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'xunit 1.7.0.1540' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
+      "libraryId": "xunit",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }
