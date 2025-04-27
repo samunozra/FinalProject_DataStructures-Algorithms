@@ -64,7 +64,7 @@
                     else
                     {
                         game.Player.Health -= 4 / 2;
-                        Console.WriteLine($"You lost, -{4/2} HP");
+                        Console.WriteLine($"You lost, -{4 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -87,7 +87,7 @@
                     else
                     {
                         game.Player.Health -= 5 / 2;
-                        Console.WriteLine($"You lost, -{5/2} HP");
+                        Console.WriteLine($"You lost, -{5 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -109,7 +109,7 @@
                     else
                     {
                         game.Player.Health -= 6 / 2;
-                        Console.WriteLine($"You lost, -{6/2} HP");
+                        Console.WriteLine($"You lost, -{6 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -132,7 +132,7 @@
                     else
                     {
                         game.Player.Health -= 7 / 2;
-                        Console.WriteLine($"You lost, -{7/2} HP");
+                        Console.WriteLine($"You lost, -{7 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -154,7 +154,7 @@
                     else
                     {
                         game.Player.Health -= 8 / 2;
-                        Console.WriteLine($"You lost, -{8/2} HP");
+                        Console.WriteLine($"You lost, -{8 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -176,7 +176,7 @@
                     else
                     {
                         game.Player.Health -= 9 / 2;
-                        Console.WriteLine($"You lost, -{9/2} HP");
+                        Console.WriteLine($"You lost, -{9 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -198,7 +198,7 @@
                     else
                     {
                         game.Player.Health -= 10 / 2;
-                        Console.WriteLine($"You lost, -{10/2} HP");
+                        Console.WriteLine($"You lost, -{10 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -389,7 +389,7 @@
                     else
                     {
                         game.Player.Health -= 4 / 2;
-                        Console.WriteLine($"You activated the trap and lost -{4/2} HP");
+                        Console.WriteLine($"You activated the trap and lost -{4 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -412,7 +412,7 @@
                     else
                     {
                         game.Player.Health -= 5 / 2;
-                        Console.WriteLine($"You activated it lost -{5/2} HP");
+                        Console.WriteLine($"You activated it lost -{5 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -434,7 +434,7 @@
                     else
                     {
                         game.Player.Health -= 6 / 2;
-                        Console.WriteLine($"You almost got crushed and lost -{6/2} HP");
+                        Console.WriteLine($"You almost got crushed and lost -{6 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -457,7 +457,7 @@
                     else
                     {
                         game.Player.Health -= 7 / 2;
-                        Console.WriteLine($"You almost fell into the hole lost -{7/2} HP, and managed to recover");
+                        Console.WriteLine($"You almost fell into the hole lost -{7 / 2} HP, and managed to recover");
                     }
                 }
                 else if ("b" == keyPress)
@@ -479,7 +479,7 @@
                     else
                     {
                         game.Player.Health -= 8 / 2;
-                        Console.WriteLine($"You lost, -{8/2} HP");
+                        Console.WriteLine($"You lost, -{8 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -501,7 +501,7 @@
                     else
                     {
                         game.Player.Health -= 9 / 2;
-                        Console.WriteLine($"You fell, -{9/2} HP");
+                        Console.WriteLine($"You fell, -{9 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -523,7 +523,7 @@
                     else
                     {
                         game.Player.Health -= 10 / 2;
-                        Console.WriteLine($"You fell hard and lost -{10/2} HP");
+                        Console.WriteLine($"You fell hard and lost -{10 / 2} HP");
                     }
                 }
                 else if ("b" == keyPress)
@@ -535,7 +535,152 @@
         }
         return challengePassed;
     }
-    
+    internal bool ItemChallenge(Game game, int difficulty)
+    {
+        string keyPress;
+        switch (difficulty)
+        {
+            default:
+            case 0:
+                Console.WriteLine("You find a potion");
+                game.Player.Health = 25;
+                Console.WriteLine("Health recovered and increased to 25");
+                break;
+
+            case 1:
+                string item = "shield";
+                Console.WriteLine($"You find a {item} \n Would you like to pick it up? type: (Y/N) then Enter");
+                keyPress = GetString().ToLower();
+                if ("y" == keyPress)
+                {
+                    if (game.Player.Inventory.Count > 5)
+                    {
+                        game.Player.Inventory.Enqueue(item);
+                        Console.WriteLine($"Picked up {item}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Inventory full");
+                    }
+                }
+                else if ("n" == keyPress)
+                {
+                    Console.WriteLine($"You didn't pick up the {item}");
+                }
+                break;
+
+            case 2:
+                item = "speed necklace";
+                Console.WriteLine($"You find a {item} \n Would you like to pick it up? type: (Y/N) then Enter");
+                keyPress = GetString().ToLower();
+                if ("y" == keyPress)
+                {
+                    if (game.Player.Inventory.Count > 5)
+                    {
+                        game.Player.Inventory.Enqueue(item);
+                        Console.WriteLine($"Picked up {item}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Inventory full");
+                    }
+                }
+                else if ("n" == keyPress)
+                {
+                    Console.WriteLine($"You didn't pick up the {item}");
+                }
+                break;
+
+            case 3:
+            item = "lockpick";
+                Console.WriteLine($"You find a {item} \n Would you like to pick it up? type: (Y/N) then Enter");
+                keyPress = GetString().ToLower();
+                if ("y" == keyPress)
+                {
+                    if (game.Player.Inventory.Count > 5)
+                    {
+                        game.Player.Inventory.Enqueue(item);
+                        Console.WriteLine($"Picked up {item}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Inventory full");
+                    }
+                }
+                else if ("n" == keyPress)
+                {
+                    Console.WriteLine($"You didn't pick up the {item}");
+                }
+                break;
+            case 4:
+                item = "wing set";
+                Console.WriteLine($"You find a {item} \n Would you like to pick it up? type: (Y/N) then Enter");
+                keyPress = GetString().ToLower();
+                if ("y" == keyPress)
+                {
+                    if (game.Player.Inventory.Count > 5)
+                    {
+                        game.Player.Inventory.Enqueue(item);
+                        Console.WriteLine($"Picked up {item}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Inventory full");
+                    }
+                }
+                else if ("n" == keyPress)
+                {
+                    Console.WriteLine($"You didn't pick up the {item}");
+                }
+                break;
+
+            case 5:
+                item = "sword";
+                Console.WriteLine($"You find a {item} \n Would you like to pick it up? type: (Y/N) then Enter");
+                keyPress = GetString().ToLower();
+                if ("y" == keyPress)
+                {
+                    if (game.Player.Inventory.Count > 5)
+                    {
+                        game.Player.Inventory.Enqueue(item);
+                        Console.WriteLine($"Picked up {item}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Inventory full");
+                    }
+                }
+                else if ("n" == keyPress)
+                {
+                    Console.WriteLine($"You didn't pick up the {item}");
+                }
+                break;
+
+            case 6:
+                item = "focus ring";
+                Console.WriteLine($"You find a {item} \n Would you like to pick it up? type: (Y/N) then Enter");
+                keyPress = GetString().ToLower();
+                if ("y" == keyPress)
+                {
+                    if (game.Player.Inventory.Count > 5)
+                    {
+                        game.Player.Inventory.Enqueue(item);
+                        Console.WriteLine($"Picked up {item}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Inventory full");
+                    }
+                }
+                else if ("n" == keyPress)
+                {
+                    Console.WriteLine($"You didn't pick up the {item}");
+                }
+                break;
+        }
+        return true;
+    }
+
     internal static BinaryTree<Node> RandomTreeGeneration()
     {
         Random random = new Random();
@@ -554,7 +699,7 @@
         //sword > +3 strength
         //shield > +2 strength
         //potion > +5 hp
-        //wing boots > +3 agility
+        //wing set > +3 agility
         //speed necklace > +2 agility
         //focus ring > +3 intelligence 
         //lockpick > +2 intelligence
