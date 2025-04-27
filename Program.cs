@@ -369,6 +369,173 @@
         }
         return challengePassed;
     }
+    internal bool TrapChallenge(Game game, int difficulty)
+    {
+        string keyPress;
+        bool challengePassed = false;
+        switch (difficulty)
+        {
+            default:
+            case 0:
+                Console.WriteLine("You almost trip on a tripwire \n Would you like to try crossing or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Agility >= 4)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        game.Player.Health -= 4 / 2;
+                        Console.WriteLine($"You activated the trap and lost -{4/2} HP");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+
+                break;
+
+            case 1:
+                Console.WriteLine("You notice a differently colored tile \n Would you like to try or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Agility >= 5)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You won!");
+                    }
+                    else
+                    {
+                        game.Player.Health -= 5 / 2;
+                        Console.WriteLine($"You activated it lost -{5/2} HP");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+            case 2:
+                Console.WriteLine("You notice that this room has spiked walls and ceiling \n Would you like to try going through or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Agility >= 6)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        game.Player.Health -= 6 / 2;
+                        Console.WriteLine($"You almost got crushed and lost -{6/2} HP");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+            case 3:
+            case 4:
+                Console.WriteLine("You stumble into a hole in the ground \n Would you like to try or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Agility >= 7)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        game.Player.Health -= 7 / 2;
+                        Console.WriteLine($"You almost fell into the hole lost -{7/2} HP, and managed to recover");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+            case 5:
+                Console.WriteLine("You encounter a mimic blocking your path \n Would you like to try and check or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Agility >= 8)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You passed!");
+                    }
+                    else
+                    {
+                        game.Player.Health -= 8 / 2;
+                        Console.WriteLine($"You lost, -{8/2} HP");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+            case 6:
+                Console.WriteLine("You find yourself after a long chain that needs to be crossed \n Would you like to try or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("f" == keyPress)
+                {
+                    if (game.Player.Agility >= 9)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You won!");
+                    }
+                    else
+                    {
+                        game.Player.Health -= 9 / 2;
+                        Console.WriteLine($"You fell, -{9/2} HP");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+            case 7:
+                Console.WriteLine("You encounter timing stones \n Would you like to try or go back? type: (T/B) then Enter");
+                keyPress = GetString().ToLower();
+                if ("t" == keyPress)
+                {
+                    if (game.Player.Strength >= 10)
+                    {
+                        challengePassed = true;
+                        Console.WriteLine("You won!");
+                    }
+                    else
+                    {
+                        game.Player.Health -= 10 / 2;
+                        Console.WriteLine($"You fell hard and lost -{10/2} HP");
+                    }
+                }
+                else if ("b" == keyPress)
+                {
+                    challengePassed = false;
+                }
+                break;
+
+        }
+        return challengePassed;
+    }
+    
     internal static BinaryTree<Node> RandomTreeGeneration()
     {
         Random random = new Random();
