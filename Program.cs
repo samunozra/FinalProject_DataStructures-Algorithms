@@ -557,6 +557,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
+                        game.Player.Strength +=2;
                     }
                     else
                     {
@@ -579,6 +580,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
+                        game.Player.Agility +=2;
                     }
                     else
                     {
@@ -601,6 +603,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
+                        game.Player.Intelligence +=2;
                     }
                     else
                     {
@@ -622,6 +625,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
+                        game.Player.Agility +=3;
                     }
                     else
                     {
@@ -644,6 +648,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
+                        game.Player.Strength +=3;
                     }
                     else
                     {
@@ -666,6 +671,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
+                        game.Player.Intelligence +=3;
                     }
                     else
                     {
