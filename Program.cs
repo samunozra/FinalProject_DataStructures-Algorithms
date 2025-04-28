@@ -6,10 +6,13 @@
         Console.WriteLine("Welcome to DungeonMatters \n Enter your name to start the game:");
         string name = GetString();
         Console.WriteLine($"You are {name}, a hero of the kingdom\n"
-        + "\nYou have been tasked by the King to explore this randomly generated dungon");
+        + "\nYou have been tasked by the King to explore this randomly generated dungeon");
         Game game = new Game(name);
-        //TODO
-    }
+        do
+        {
+            game.Map.DisplayEdges(game.CurrentNode.Data);
+        } while (!game.EndGame());
+    }//TODO
     internal void DropItem(Game game)
     {
         string keyPress;
@@ -59,7 +62,6 @@
         }
 
     }
-
     internal bool ReachedChallenge(Game game)
     {
         /*

@@ -154,9 +154,4 @@
         path.Remove(current);
         return false;
     }
-    public bool BreadthFirstSearch()
-    {
-        //TODO
-        return false;
-    }
 }

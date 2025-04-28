@@ -10,11 +10,13 @@ internal class Game
 
     internal Game(string name)
     {
+        Random rand = new();
         Player = new Hero(name);
         Challenges = Program.RandomTreeGeneration();
         Map = Program.RandomGraphGeneration(Challenges.NodeCounter);
         CurrentNode = Map.network["A"][0];
-        //TODO add Exit to the constructor
+        string tempRoom = Map.network.Keys.ToArray()[rand.Next(Map.network.Keys.Count)];
+        Exit = Map.network[tempRoom][0];
     }
     internal bool EndGame()
     {
