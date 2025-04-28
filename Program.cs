@@ -6,12 +6,36 @@
         Console.WriteLine("Welcome to DungeonMatters \n Enter your name to start the game:");
         string name = GetString();
         Console.WriteLine($"You are {name}, a hero of the kingdom\n"
-        + "\nYou have been tasked by the King to explore this randomly generated dungeon");
+        + $"\nYou, {name}, have been tasked by the King to explore this randomly generated dungeon");
+
         Game game = new Game(name);
         do
         {
-            game.Map.DisplayEdges(game.CurrentNode.Data);
+            Console.WriteLine("");
+            List<Node> possiblePaths = game.Map.DisplayEdges(game.CurrentNode.Data);
+            Node movementNode = new Node();
+            string selectedRoom = GetString();
+            while (!possiblePaths.Contains(new Node(selectedRoom)))
+            {
+                movementNode = game.PlayerMove(possiblePaths, selectedRoom);
+            }
+            game.CurrentNode = movementNode;
+            ReachedChallenge(game);
+
         } while (!game.EndGame());
+        Console.BackgroundColor = ConsoleColor.DarkBlue;
+        if (game.Player.Health == 0)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("You died 😩");
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("You got to the exit, horray!!  😋");
+        }
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.Gray;
     }//TODO
     internal void DropItem(Game game)
     {
@@ -62,7 +86,7 @@
         }
 
     }
-    internal bool ReachedChallenge(Game game)
+    internal static bool ReachedChallenge(Game game)
     {
         /*
         From the player's position obtain the level of difficulty of the challenge
@@ -96,7 +120,7 @@
         Console.ForegroundColor = ConsoleColor.Gray;
         return passed;
     }
-    internal bool CombatChallenge(Game game, int difficulty)
+    internal static bool CombatChallenge(Game game, int difficulty)
     {
         string keyPress;
         bool challengePassed = false;
@@ -262,7 +286,7 @@
         }
         return challengePassed;
     }
-    internal bool PuzzleChallenge(Game game, int difficulty)
+    internal static bool PuzzleChallenge(Game game, int difficulty)
     {
         string keyPress;
         bool challengePassed = false;
@@ -421,7 +445,7 @@
         }
         return challengePassed;
     }
-    internal bool TrapChallenge(Game game, int difficulty)
+    internal static bool TrapChallenge(Game game, int difficulty)
     {
         string keyPress;
         bool challengePassed = false;
@@ -587,7 +611,7 @@
         }
         return challengePassed;
     }
-    internal bool ItemChallenge(Game game, int difficulty)
+    internal static bool ItemChallenge(Game game, int difficulty)
     {
         string keyPress;
         switch (difficulty)

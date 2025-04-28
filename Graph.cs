@@ -81,17 +81,18 @@
         Console.WriteLine($"{node1} and {node2} edge no longer exists.");
     }
 
-    public void DisplayEdges(string node)
+    public List<Node> DisplayEdges(string node)
     {
         DoesNodeExist(node);
 
         if (network[node].Count() == 0)
         {
             Console.WriteLine($"{node} has no edges.");
-            return;
+            return null;
         }
 
         Console.WriteLine($"{node}'s edges: {string.Join(", ", network[node])}");
+        return network[node];
 
     }
 

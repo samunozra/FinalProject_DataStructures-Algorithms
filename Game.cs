@@ -18,6 +18,21 @@ internal class Game
         string tempRoom = Map.network.Keys.ToArray()[rand.Next(Map.network.Keys.Count)];
         Exit = Map.network[tempRoom][0];
     }
+    internal Node PlayerMove(List<Node> edges, string nodeName)
+    {
+        Node node = new Node(nodeName);
+        Node target = new Node();
+        if (edges.Contains(node))
+        {
+            target = node;
+            CurrentNode = target;
+        }
+        else 
+        {
+            Console.WriteLine("Cannot move to the selected node");
+        }
+        return target;
+    }
     internal bool EndGame()
     {
         bool endCheck = false;
