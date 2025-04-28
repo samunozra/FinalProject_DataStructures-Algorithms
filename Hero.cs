@@ -29,16 +29,6 @@
         }
         Inventory.Enqueue(name);
     }
-
-    internal void RemoveItem()
-    {
-        if (Inventory.Count == 0)
-        {
-            Console.WriteLine($"{HeroName}'s Inventory is empty");
-            return;
-        }
-        Inventory.Dequeue();
-    }
     internal void DisplayInventory()
     {
         if (Inventory.Count == 0)

@@ -4,16 +4,24 @@
     {
         ConsoleKey presedKey;
         Console.WriteLine("Welcome to DungeonMatters \n Enter your name to start the game:");
-        Game game = new Game(GetString());
-        // game.Start();
+        string name = GetString();
+        Console.WriteLine($"You are {name}, a hero of the kingdom\n"
+        + "\nYou have been tasked by the King to explore this randomly generated dungon");
+        Game game = new Game(name);
         //TODO
     }
     internal void DropItem(Game game)
     {
         string keyPress;
-        if (game.Player.Inventory.Count > 0 || game.Player.Inventory.Count == null)
+        if (game.Player.Inventory.Count < 0 || game.Player.Inventory.Count == null)
         {
-        Console.WriteLine("Would you like to drop an item? Type Y/N, then press Enter");
+            Console.WriteLine($"{game.Player.HeroName}'s inventory is empty");
+            return;
+        }
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        game.Player.DisplayInventory();
+        Console.ForegroundColor = ConsoleColor.Gray;
+        Console.WriteLine($"Would you like to drop {game.Player.Inventory.First()}? Type Y/N, then press Enter");
         do
         {
             keyPress = GetString().ToLower();
@@ -21,13 +29,35 @@
         switch (keyPress)
         {
             case "y":
-            break;
-            case "n"://TODO
-            break;
-            
+                Console.WriteLine($"You discarded {game.Player.Inventory.First()}");
+                switch (game.Player.Inventory.First())
+                {
+                    case "shield":
+                        game.Player.Strength = -2;
+                        break;
+                    case "sword":
+                        game.Player.Strength = -3;
+                        break;
+                    case "speed necklace":
+                        game.Player.Agility = -2;
+                        break;
+                    case "wing set":
+                        game.Player.Agility = -3;
+                        break;
+                    case "lockpick":
+                        game.Player.Intelligence = -2;
+                        break;
+                    case "focus ring":
+                        game.Player.Intelligence = -3;
+                        break;
+                }
+                game.Player.Inventory.Dequeue();
+                break;
+            case "n":
+                break;
+
         }
-        
-        }
+
     }
 
     internal bool ReachedChallenge(Game game)
@@ -577,7 +607,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
-                        game.Player.Strength +=2;
+                        game.Player.Strength += 2;
                     }
                     else
                     {
@@ -600,7 +630,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
-                        game.Player.Agility +=2;
+                        game.Player.Agility += 2;
                     }
                     else
                     {
@@ -614,7 +644,7 @@
                 break;
 
             case 3:
-            item = "lockpick";
+                item = "lockpick";
                 Console.WriteLine($"You find a {item} \n Would you like to pick it up? type: (Y/N) then Enter");
                 keyPress = GetString().ToLower();
                 if ("y" == keyPress)
@@ -623,7 +653,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
-                        game.Player.Intelligence +=2;
+                        game.Player.Intelligence += 2;
                     }
                     else
                     {
@@ -645,7 +675,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
-                        game.Player.Agility +=3;
+                        game.Player.Agility += 3;
                     }
                     else
                     {
@@ -668,7 +698,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
-                        game.Player.Strength +=3;
+                        game.Player.Strength += 3;
                     }
                     else
                     {
@@ -691,7 +721,7 @@
                     {
                         game.Player.Inventory.Enqueue(item);
                         Console.WriteLine($"Picked up {item}");
-                        game.Player.Intelligence +=3;
+                        game.Player.Intelligence += 3;
                     }
                     else
                     {
@@ -740,7 +770,22 @@
         {
             string room = $"{(char)i}";
             generatedGraph.AddNode(room);
-        } //TODO
+        }
+        string[] keysArray = generatedGraph.network.Keys.ToArray();
+
+        int n = keysArray.Length; // array randomizer
+        while (n > 1)
+        {
+            int k = random.Next(n--);
+            string temp = keysArray[n];
+            keysArray[n] = keysArray[k];
+            keysArray[k] = temp;
+        }
+
+        for (int i = 0; i < keysArray.Length; i++)
+        {
+            generatedGraph.AddEdge(keysArray[i], keysArray[i + 1]);
+        }
         return generatedGraph;
     }
     public static int GetInt32()
@@ -767,39 +812,6 @@
             text = GetString();
         }
         return text;
-    }
-}
-internal class Game
-{
-    internal Hero Player;
-    internal Graph<Node> Map;
-    internal BinaryTree<Node> Challenges;
-    internal Node CurrentNode = new();
-    internal Node Exit;
-
-    internal Game() : this("The Chosen One") { }
-
-    internal Game(string name)
-    {
-        Player = new Hero(name);
-        Challenges = Program.RandomTreeGeneration();
-        Map = Program.RandomGraphGeneration(Challenges.NodeCounter);
-        CurrentNode = Map.network["A"][0];
-        //TODO add Exit to the constructor
-    }
-    internal void Start()
-    {
-
-    }
-    internal bool EndGame()
-    {
-        bool endCheck = false;
-        if (Exit == CurrentNode || Player.Health == 0)
-        {
-            endCheck = true;
-        }
-
-        return endCheck;
     }
 }
 internal enum Challenge { Combat, Puzzle, Trap, Item }
