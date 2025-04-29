@@ -11,7 +11,8 @@
         Game game = new Game(name);
         do
         {
-            Console.WriteLine("");
+            Console.WriteLine($"{name} the Hero:\nHealth: {game.Player.Health}\nStrength: {game.Player.Strength}\nAgility: {game.Player.Agility}\nIntelligence: {game.Player.Intelligence}\n\n");
+
             List<Node> possiblePaths = game.Map.DisplayEdges(game.CurrentNode.Data);
             Node movementNode = new Node();
             string selectedRoom = GetString();
@@ -21,7 +22,7 @@
             }
             game.CurrentNode = movementNode;
             ReachedChallenge(game);
-
+            Console.Clear();
         } while (!game.EndGame());
         Console.BackgroundColor = ConsoleColor.DarkBlue;
         if (game.Player.Health == 0)
